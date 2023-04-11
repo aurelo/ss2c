@@ -43,6 +43,10 @@ public class AppUser implements UserDetails, OidcUser {
         return authorities;
     }
 
+    public void removeAuthority(String authority) {
+        this.authorities = this.getAuthorities().stream().filter(a -> !a.getAuthority().equals(authority)).toList();
+    }
+
     @Override
     public String getPassword() {
         return password;

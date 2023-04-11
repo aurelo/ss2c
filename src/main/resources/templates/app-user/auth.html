@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" data-th-replace="~{fragments/skeleton::layout('user', ~{::#auth_content})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="auth_content">
+
+    <p data-th-text="${appUser}"></p>
+
+    <ul>
+        <li data-th-each="a : ${appUser.authorities}" data-th-text="${a}">
+        </li>
+    </ul>
+
+
+    <table class="ui table">
+        <thead>
+        <tr>
+            <th>authority</th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr data-th-each="a : ${appUser.authorities}">
+              <td data-th-text="${a}">
+              </td>
+
+              <td>
+                  <form data-th-action="@{/user/auth/__${a}__}" method="post">
+                      <input type="hidden" name="_method" value="DELETE"/>
+                      <input type="submit" value="Delete">
+                  </form>
+              </td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
