@@ -9,7 +9,28 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
+    <!--SEQUENCES-->
+    <changeSet id="create_sequence_authorities_seq" author="kanezi">
+        <sqlFile path="db/schema/sequences/authorities_seq.sql"/>
+    </changeSet>
 
+    <changeSet id="create_sequence_user_authorities_seq" author="kanezi">
+        <sqlFile path="db/schema/sequences/user_authorities_seq.sql"/>
+    </changeSet>
+
+
+    <!--TABLES-->
+    <changeSet id="create_table_authorities" author="kanezi">
+        <sqlFile path="db/schema/tables/authorities.sql"/>
+    </changeSet>
+
+    <changeSet id="create_table_users" author="kanezi">
+        <sqlFile path="db/schema/tables/users.sql"/>
+    </changeSet>
+
+    <changeSet id="create_table_users_authorities" author="kanezi">
+        <sqlFile path="db/schema/tables/user_authorities.sql"/>
+    </changeSet>
 
 
 </databaseChangeLog>
